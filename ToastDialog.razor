@@ -1,0 +1,24 @@
+﻿
+<div class="">
+    <div class="toast-container position-absolute top-0 end-0 mt-2 pt-5 pe-2">
+        <div class="toast show" style="background-color:@(IsSuccessed? "#00ffa5" : "#ff0000")" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">@ToastMessage</strong>
+                <button type="button" class="btn-close btn-close-black" aria-label="Close" @onclick="@CloseToast"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+	[Parameter] public bool IsSuccessed { get; set; }
+	[Parameter] public string ToastMessage { get; set; }
+	[Parameter] public EventCallback<bool> OnClose { get; set; }
+    string success = "#00ffa5";
+    string error = "#ff0000";
+
+	private Task CloseToast()
+	{
+		return OnClose.InvokeAsync(false);
+	}
+}
