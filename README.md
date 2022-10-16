@@ -1,15 +1,18 @@
 # Blazor-Components
 
 
-//call ModalDialog 
+//Call ModalDialog 
+```cs
     <ModalDialog Title='AreYouSure'
              Text='ConfirmDelete"'
              OnClose="@OnDialogClose"
              DialogType="ModalDialogType.DeleteCancel">
     </ModalDialog>
+```
         
-        
-//call ToastDialog 
+//Call ToastDialog 
+```cs
    <ToastDialog IsSuccessed='true'
           ToastMessage='toastMessage'>
    </ToastDialog>
+```
